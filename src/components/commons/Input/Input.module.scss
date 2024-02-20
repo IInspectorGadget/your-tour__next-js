@@ -1,0 +1,29 @@
+
+  .field {
+    @include field
+  }
+
+  .date {
+    padding: 20.5px 20px 20.5px 18px;
+
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+
+    &:invalid {
+      color: var(--gray-300);
+    }
+  }
+
+
+  .date::-webkit-inner-spin-button,
+.date::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+@media (max-width: 720px) {
+  .date {
+    padding: 10px 10px 10px 8px;
+  }
+
+}

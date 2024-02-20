@@ -1,0 +1,37 @@
+
+.fieldset{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 33px 30px;
+  margin: 70px;
+  @include pNormal;
+}
+
+.buttons {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 1024px) {
+  .fieldset {
+    gap: 33px 20px;
+    margin: 60px;
+  }
+}
+  
+@media (max-width: 720px) {
+  .fieldset {
+    flex-direction: column;
+    margin: 20px 20px 40px 21px;
+    gap: 30px;
+  }
+  
+  .buttons {
+    gap: 10px;
+  }
+}
+  

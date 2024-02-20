@@ -1,0 +1,21 @@
+.adult {
+    display: flex;
+    gap: 31px;
+
+    &Item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .adult {
+      gap: 30px;
+    }
+    .adultItem {
+        align-items: center;
+        gap: 10px;
+    }
+}

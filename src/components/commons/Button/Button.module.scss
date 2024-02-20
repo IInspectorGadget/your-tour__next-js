@@ -1,0 +1,50 @@
+.button {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    @include pNormal
+  }
+
+.button[type=submit] {
+    padding: 15px 70.5px;
+    color: #fff;
+    background-color: var(--green-400);
+
+    &:hover {
+      background-color: var(--green-300);
+    }
+
+    &:active {
+      background-color: var(--green-200);
+    }
+  }
+
+.button[type=reset] {
+  padding: 15px 73px;
+  color: var(--green-400);
+  background-color: var(--green-100);
+
+  &:hover {
+    background-color: var(--gray-100);
+  }
+
+  &:active {
+    background-color: var(--gray-200);
+  }
+}
+
+
+@media (max-width: 720px) {
+    .button {
+        line-height: 17px;
+    }
+
+    .button[type=submit] {
+        padding: 15px 29.7px;
+    }
+
+    .button[type=reset] {
+        padding: 15px 31.3px;
+    }
+}
+  

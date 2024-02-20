@@ -1,0 +1,37 @@
+.container {
+    position: relative;
+    max-width: calc(1170px + 60px);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    @media (max-width: 1024px) {
+      max-width: calc(918px + 40px);
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    @media (max-width: 360px) {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+}
+.paddingTop {
+  padding-top: 135px;
+
+  @media (max-width: 720px) {
+    padding-top: 76px;
+  }
+}
+  
+.marginTop {
+  margin-top: 135px;
+  
+  @media (max-width: 720px) {
+    margin-top: 76px;
+  }
+}
+  
+    
+  
