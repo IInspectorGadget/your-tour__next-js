@@ -1,14 +1,12 @@
-import cx from 'classnames';
-
 import s from './Radio.module.scss';
 
-const Radio = ({className, value, id, name, label}) => {
+const Radio = ({value, id, name, label}) => {
     return (
         <>
-            <div className={s.radioButton}>
-                <input value={value} id={id} name={name} type="radio" className={s.radio}></input>
+            <div className={s.button}>
+                <input value={value} id={id} name={name} type="radio" className={s.radio}/>
             </div>
-            <label htmlFor={id} className={s.radioLabel}>{label}</label>
+            <label htmlFor={id} className={s.label}>{label}</label>
         </>
     )
 };

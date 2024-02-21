@@ -3,9 +3,9 @@ import cx from 'classnames';
 import s from './Picture.module.scss';
 
 
-const Picture = ({url, isLarge, alt}) => {
+const Picture = ({className, url, isLarge, alt}) => {
   return (
-    <div className={cx(s.item, {[s.large]: isLarge, [s.small]: !isLarge})}>
+    <div className={cx(className, s.root, {[s.large]: isLarge, [s.small]: !isLarge})}>
       <img src={url} alt={alt} className={s.img}/>
     </div>
   )

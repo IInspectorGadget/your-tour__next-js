@@ -1,6 +1,6 @@
 $containerMaxWidth: 1860px;
 
-.item {
+.root {
   overflow: hidden;
   flex-grow: 0;
   flex-shrink: 1;
@@ -41,7 +41,7 @@ $containerMaxWidth: 1860px;
 @media (width <= 720px) {
   $containerMaxWidth: 500px;
 
-  .item {
+  .root {
     border-radius: 20px;
   }
 
@@ -61,7 +61,7 @@ $containerMaxWidth: 1860px;
 @media (width <= 520px) {
   $containerMaxWidth: 318px;
 
-  .item {
+  .root {
     border-radius: 20px;
   }
 
