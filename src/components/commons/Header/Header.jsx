@@ -3,7 +3,7 @@ import s from "./Header.module.scss"
 
 export default function Header(){
     return (
-    <header className={s.header}>
+    <header className={s.root}>
         <div className={s.wrapper}>
             <Container className={s.container}>
                 <a href="#" className={s.link}>

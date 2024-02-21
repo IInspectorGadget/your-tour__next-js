@@ -1,11 +1,14 @@
-import Hero from "./Hero/Hero"
-import History from "./History/History"
-import CreateTour from "./CreateTour/CreateTour"
-import Photos from "./Photos/Photos"
-import Reviews from "./Reviews/Reviews"
-import Tours from "./Tours/Tours"
 import Header from "@/components/commons/Header/Header"
-import "./HomePage.module.scss"
+import Hero from "./Hero/Hero"
+import Tours from "./Tours/Tours"
+import CreateTour from "./CreateTour/CreateTour"
+import Reviews from "./Reviews/Reviews"
+import Photos from "./Photos/Photos"
+import History from "./History/History"
+import WithUs from "./WithUs"
+import Footer from "@/components/commons/Footer"
+
+import s from "./HomePage.module.scss"
 
 export default function HomePage(){
     return <>
@@ -16,5 +19,7 @@ export default function HomePage(){
         <Reviews></Reviews>
         <Photos></Photos>
         <History></History>
+        <WithUs></WithUs>
+        <Footer></Footer>
     </>
 }

@@ -1,0 +1,38 @@
+.root {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.icon {
+    height: 26px;
+    width: 26px;
+    object-position: center;
+    object-fit: none;
+  }
+
+.link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+  @media (max-width: 360px) {
+    
+  
+
+    .item {
+      gap: 5px;
+    }
+
+    .icon {
+      width: 21px;
+      height: 21px;
+    }
+  }
