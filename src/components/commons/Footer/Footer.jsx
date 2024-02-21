@@ -1,5 +1,6 @@
-import cx from 'classnames';
 import { memo } from 'react';
+
+import cx from 'classnames';
 
 import Container from '../Container';
 import SocialLink from '../SocialLink';

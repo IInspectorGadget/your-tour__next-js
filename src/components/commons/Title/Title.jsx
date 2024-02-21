@@ -1,7 +1,8 @@
+import { memo } from 'react';
+
 import cx from 'classnames';
 
 import s from './Title.module.scss';
-import { memo } from 'react';
 
 const Title = ({className, children}) => {
     return <h2 className={cx(s.root, className)}>{children}</h2>;

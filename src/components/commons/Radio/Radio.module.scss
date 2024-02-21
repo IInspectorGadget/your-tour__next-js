@@ -26,13 +26,13 @@
   border-radius: 50%;
 }
 
-.radioButton {
+.button {
   position: relative;
   width: 26px;
   height: 26px;
 }
 
-.radioLabel::before {
+.label::before {
   content: "";
 
   position: absolute;
@@ -45,7 +45,7 @@
 }
 
 @media (width <= 720px) {
-  .radioButton {
+  .button {
     width: 20px;
     height: 20px;
   }

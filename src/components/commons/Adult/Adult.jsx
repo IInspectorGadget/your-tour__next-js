@@ -1,5 +1,7 @@
 import cx from 'classnames';
+
 import Radio from '../Radio';
+
 import s from './Adult.module.scss';
 
 const Adult = ({className, isRequired}) => {

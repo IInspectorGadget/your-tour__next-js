@@ -1,0 +1,14 @@
+@import "./base/_reset";
+@import "./base/colors";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--beige-100);
+}
+
+select {
+  appearance: none;
+}

@@ -1,5 +1,6 @@
+import {memo, useCallback, useMemo} from 'react'
+
 import cx from 'classnames';
-import {useCallback, useMemo} from 'react'
 
 import Input from '../Input';
 import FormItem from '../FormItem';
@@ -8,6 +9,7 @@ import Select from '../Select';
 import License from '../License';
 import Adult from '../Adult';
 import Button from '../Button';
+
 import s from './Form.module.scss';
 
 const options = [
@@ -152,4 +154,4 @@ const Form = ({className}) => {
     );
 };
 
-export default Form;
+export default  memo(Form);

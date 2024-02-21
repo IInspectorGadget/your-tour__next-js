@@ -1,9 +1,10 @@
+import { memo } from 'react';
+
 import cx from 'classnames';
 
 import s from './TourCard.module.scss';
-import { memo } from 'react';
 
-const TourCard = ({className, imageUrl, url}) => {
+const TourCard = ({className, imageUrl, url, title, cost}) => {
     return (
         <div className={cx(className, s.root, s.card)}>
             <div className={s.gradient}>
@@ -14,13 +15,13 @@ const TourCard = ({className, imageUrl, url}) => {
             <div className={s.inner}>
 
                 <div className={s.top}>
-                    <h3 className={s.title}>Путешествие в горы</h3>
-                    <p className={s.cost}>от 80 000 руб</p>
+                    <h3 className={s.title}>{title}</h3>
+                    <p className={s.cost}>от {cost} руб</p>
                 </div>
                 <div className={s.bottom}>
                     <a href="#" className={cx(s.detail ,s.cardDetail)}>
                         <span className={s.detailLink}>Подробнее</span>
-                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow,s.cardDetailArrow)}></img>
+                        <img src={'assets/images/icons/arrow.svg'} alt="arrow" className={cx(s.detailArrow,s.cardDetailArrow)}/>
                     </a>
                 </div>
             </div>

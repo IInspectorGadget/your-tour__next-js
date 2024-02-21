@@ -12,37 +12,49 @@ const items = [
         id: 1,
         types: ["Популярные"],
         imageUrl: "/assets/images/cards/card_tour_photo-1.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     },
     {
         id: 2,
         types: ["Популярные"],
         imageUrl: "/assets/images/cards/card_tour_photo-2.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     },
     {
         id: 3,
         types: ["Популярные", "Велопрогулки"],
         imageUrl: "/assets/images/cards/card_tour_photo-3.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     },
     {
         id: 4,
         types: ["Популярные", "Авторский"],
         imageUrl: "/assets/images/cards/card_tour_photo-4.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     },
     {
         id: 5,
         types: ["Популярные", "Походы"],
         imageUrl: "/assets/images/cards/card_tour_photo-5.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     },
     {
         id: 6,
         types: ["Популярные", "Сплавы"],
         imageUrl: "/assets/images/cards/card_tour_photo-6.jpg",
-        url:"#"
+        url:"#",
+        const: "80 000",
+        title: "Путешествие в горы",
     }
 ]
 
@@ -69,7 +81,7 @@ const Tours = ({id}) => {
 
                 <div className={s.cards}>
                     {filteredItems.map(el => (
-                        <TourCard key={el.id} {...el}></TourCard>
+                        <TourCard key={el.id} {...el}/>
                     ))}
                 </div>
             </Container>

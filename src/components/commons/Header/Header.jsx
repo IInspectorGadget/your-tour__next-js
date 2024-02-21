@@ -1,17 +1,21 @@
 import { useEffect, useRef, memo } from "react";
+
+import cx from 'classnames';
+
 import Container from "../Container"
+
 import s from "./Header.module.scss"
 
-const Header = ({routes}) => {
+const Header = ({className, routes}) => {
     const header = useRef(null);
 
     useEffect(() => {
-        const startChangeHight = 450;
+        const startChangeHeight = 450;
 
         const handlerScroll = () => {
             let scrollDistance = window.scrollY;
 
-            if (scrollDistance >= startChangeHight) {
+            if (scrollDistance >= startChangeHeight) {
                 header.current.classList.add(s.wrapperScroll);
             } else {
                 header.current.classList.remove(s.wrapperScroll);
@@ -27,7 +31,7 @@ const Header = ({routes}) => {
     }, [])
 
     return (
-        <header ref={header} className={s.root}>
+        <header ref={header} className={cx(className, s.root)}>
             <div className={s.wrapper}>
                 <Container className={s.container}>
                     <a href="#" className={s.link}>
@@ -37,7 +41,7 @@ const Header = ({routes}) => {
                         <ul className={s.navList}>
                             {
                                 Object.keys(routes).map((key, idx) => (
-                                    <li className={s.navItem}><a href={`#${routes[key].id}`} className={s.navLink}>{routes[key].name}</a></li>
+                                    <li key={idx} className={s.navItem}><a href={`#${routes[key].id}`} className={s.navLink}>{routes[key].name}</a></li>
                                 ))
                             }
                         </ul>

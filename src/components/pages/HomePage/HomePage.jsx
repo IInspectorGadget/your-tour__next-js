@@ -1,10 +1,10 @@
-import Header from "@/components/commons/Header/Header"
-import Hero from "./Hero/Hero"
-import Tours from "./Tours/Tours"
-import CreateTour from "./CreateTour/CreateTour"
-import Reviews from "./Reviews/Reviews"
-import Photos from "./Photos/Photos"
-import History from "./History/History"
+import Header from "@/components/commons/Header"
+import Hero from "./Hero"
+import Tours from "./Tours"
+import CreateTour from "./CreateTour"
+import Reviews from "./Reviews"
+import Photos from "./Photos"
+import History from "./History"
 import WithUs from "./WithUs"
 import Footer from "@/components/commons/Footer"
 
@@ -31,14 +31,14 @@ export default function HomePage() {
     }
 
     return <>
-        <Header routes={routes}></Header>
-        <Hero></Hero>
-        <Tours id={routes.tours.id}></Tours>
-        <CreateTour id={routes.createTour.id}></CreateTour>
-        <Reviews id={routes.reviews.id}></Reviews>
-        <Photos></Photos>
-        <History id={routes.history.id}></History>
-        <WithUs></WithUs>
-        <Footer></Footer>
+        <Header routes={routes}/>
+        <Hero/>
+        <Tours id={routes.tours.id}/>
+        <CreateTour id={routes.createTour.id}/>
+        <Reviews id={routes.reviews.id}/>
+        <Photos/>
+        <History id={routes.history.id}/>
+        <WithUs/>
+        <Footer/>
     </>
 }

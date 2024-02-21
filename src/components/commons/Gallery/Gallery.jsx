@@ -1,9 +1,10 @@
+import { memo } from 'react';
+
 import cx from 'classnames';
 
 import Row from '../Row';
 
 import s from './Gallery.module.scss';
-import { memo } from 'react';
 
 const Gallery = ({className, pictures}) => {
     return (
