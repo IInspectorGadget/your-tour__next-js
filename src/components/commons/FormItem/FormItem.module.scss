@@ -1,25 +1,26 @@
-.item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: calc(50% - 15px);
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: calc(50% - 15px);
+
+  &_full {
+    width: 100%;
+  }
+}
+
+@media (width <= 1024px) {
+  .root {
+    width: calc(50% - 10px);
 
     &_full {
       width: 100%;
     }
+  }
 }
 
-@media (max-width: 1024px) {
-    .item {
-        width: calc(50% - 10px);
-        &_full {
-            width: 100%;
-        }
-    }
-}
-
-@media (max-width: 720px) {
-    .item {
-        width: 100%;
-    }
+@media (width <= 720px) {
+  .root {
+    width: 100%;
+  }
 }

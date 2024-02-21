@@ -1,35 +1,36 @@
-$container_max-width: 1860px;
+$containerMaxWidth: 1860px;
 $list-height: 963px;
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: calc($container_max-width + 60px);
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: calc($containerMaxWidth + 60px);
+
+  text-align: center;
 }
 
 .subtitle {
-    width: 418px;
+  width: 418px;
 }
 
-  
-@media (max-width: 1024px) {
-    $container_max-width: 984px;
-    .container {
-        max-width: calc($container_max-width + 40px);
-    }
+@media (width <= 1024px) {
+  $containerMaxWidth: 984px;
+
+  .container {
+    max-width: calc($containerMaxWidth + 40px);
+  }
 }
-  
-@media (max-width: 720px) {
+
+@media (width <= 720px) {
   .subtitle {
     width: 100%;
   }
 }
-  
-@media (max-width: 520px) {
+
+@media (width <= 520px) {
   .subtitle {
     width: 100%;
   }
 }
-  

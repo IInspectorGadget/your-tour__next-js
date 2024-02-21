@@ -1,10 +1,10 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
-
-
-import s from './Footer.module.scss';
 import Container from '../Container';
 import SocialLink from '../SocialLink';
+
+import s from './Footer.module.scss';
 
 
 const links = [
@@ -27,7 +27,7 @@ const links = [
 
 const Footer = ({className}) => {
     return (
-        <footer className={s.footer}>
+        <footer className={cx(className, s.footer)}>
             <Container className={s.container} isTopOffset={true}>
                 <div className={s.inner}>
                     <p className={s.paragraph}>Наши социальные сети</p>
@@ -42,4 +42,4 @@ const Footer = ({className}) => {
     )
 };
 
-export default Footer;
+export default memo(Footer);

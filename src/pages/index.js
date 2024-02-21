@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HomePage from "@/components/pages/HomePage/HomePage";
+import HomePage from "@/components/pages/HomePage";
 
 export default function Home() {
   return (
@@ -14,7 +14,6 @@ export default function Home() {
         <meta name="keywords" content="туры, путешествия, отдых, популярные туры, авторские туры, природа, сплавы, горы, велопрогулки, цены на туры"/>
       </Head>
       <HomePage></HomePage>
-
     </>
   );
 }

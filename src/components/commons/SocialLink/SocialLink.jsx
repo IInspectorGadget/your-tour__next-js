@@ -1,6 +1,5 @@
 import cx from 'classnames';
-
-
+import { memo } from 'react';
 
 import s from './SocialLink.module.scss';
 
@@ -13,4 +12,4 @@ const SocialLink = ({ className,classLink, name, iconUrl, link}) => {
     )
 };
 
-export default SocialLink;
+export default memo(SocialLink);

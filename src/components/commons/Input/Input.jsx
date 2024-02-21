@@ -2,21 +2,21 @@ import cx from 'classnames';
 
 import s from './Input.module.scss';
 
-const Input = ({className, type, placeholder, name, max, maxLength }) => {
+const Input = ({className, type, placeholder, name, id, max, maxLength, handlers, isRequired }) => {
 
     return (
-        <input 
-        max = {max ? max: undefined} 
-        maxLength={maxLength? maxLength: undefined} 
-        required 
-        autoComplete="on" 
-        id={name} 
-        name={name} 
-        type={type} 
-        className={type==="date" ? cx(s.field,s.date) : s.field} 
-        placeholder={placeholder ? placeholder : undefined}>
-
-        </input>
+        <input
+            {...handlers}
+            required = {isRequired}
+            max = {max} 
+            maxLength={maxLength} 
+            autoComplete="on" 
+            id={id} 
+            name={name} 
+            type={type} 
+            className={cx(className, s.field, {[s.date]: type==="date"})} 
+            placeholder={placeholder}
+        />
     )
     
 };

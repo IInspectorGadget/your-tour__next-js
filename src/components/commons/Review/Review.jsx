@@ -1,10 +1,11 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
 import s from './Review.module.scss';
 
 const Review = ({className, name, tour, text, photo}) => {
     return (
-        <div className={cx(className,s.review)}>
+        <div className={cx(className,s.root)}>
             <div className={s.text}>
                 {text.map((paragraph,idx) => <p key={idx} className={s.paragraph}>{idx ? <br></br>: ""}{paragraph}</p>)}
             </div>
@@ -20,4 +21,4 @@ const Review = ({className, name, tour, text, photo}) => {
     )
 };
 
-export default Review;
+export default memo(Review);

@@ -2,7 +2,9 @@ import Container from "@/components/commons/Container"
 import Title from "@/components/commons/Title"
 import SubTitle from "@/components/commons/SubTitle"
 import Review from "@/components/commons/Review"
+
 import s from "./Reviews.module.scss"
+import { memo } from "react"
 
 
 const reviews = [
@@ -24,20 +26,20 @@ const reviews = [
 ]
 
 
-export default function Reviews(){
-    return <>
-   <section className={s.reviews} id="reviews">
-    <Container className={s.container} isTopOffset={true}>
-        <Title className={s.title}>Отзывы наших путешественников</Title>
-        <SubTitle className={s.subTitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
-        <div className={s.list}>
-            {reviews.map((el,idx) => (
-                <Review key={idx} {...el} ></Review>
-            ))}
-
-        </div>
-    </Container>
-   
-    </section>
-    </>
+const Reviews = ({id}) => {
+    return (
+        <section className={s.root} id={id}>
+            <Container className={s.container}>
+                <Title className={s.title}>Отзывы наших путешественников</Title>
+                <SubTitle className={s.subTitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
+                <div className={s.list}>
+                    {reviews.map((el,idx) => (
+                        <Review key={idx} {...el} ></Review>
+                    ))}
+                </div>
+            </Container>
+        </section>
+    )
 }
+
+export default memo(Reviews)

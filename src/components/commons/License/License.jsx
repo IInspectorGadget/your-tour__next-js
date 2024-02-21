@@ -2,13 +2,13 @@ import cx from 'classnames';
 
 import s from './License.module.scss';
 
-const License = () => {
+const License = ({className ,isRequired}) => {
     return (
-        <div className={s.license}>
-            <div className={s.checkboxWrapper}>
-                <input required id="license" name="license" type="checkbox" className={s.checkbox}></input>
+        <div className={cx(className, s.root)}>
+            <div className={s.wrapper}>
+                <input required={isRequired} id="license" name="license" type="checkbox" className={s.checkbox}/>
             </div>
-            <label htmlFor="license" className={s.checkboxLabel}>Нажимая кнопку, я принимаю условия <a href="#" className={s.licenseLink}>Лицензионного договора</a></label>
+            <label htmlFor="license" className={s.label}>Нажимая кнопку, я принимаю условия <a href="#" className={s.link}>Лицензионного договора</a></label>
         </div>
     )
 };

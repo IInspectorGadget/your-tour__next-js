@@ -1,25 +1,25 @@
-.button {
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 200ms ease;
-    @include pNormal
+.root {
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 200ms ease;
+  @include pNormal;
+}
+
+.root[type="submit"] {
+  padding: 15px 70.5px;
+  color: #ffffff;
+  background-color: var(--green-400);
+
+  &:hover {
+    background-color: var(--green-300);
   }
 
-.button[type=submit] {
-    padding: 15px 70.5px;
-    color: #fff;
-    background-color: var(--green-400);
-
-    &:hover {
-      background-color: var(--green-300);
-    }
-
-    &:active {
-      background-color: var(--green-200);
-    }
+  &:active {
+    background-color: var(--green-200);
   }
+}
 
-.button[type=reset] {
+.root[type="reset"] {
   padding: 15px 73px;
   color: var(--green-400);
   background-color: var(--green-100);
@@ -33,18 +33,16 @@
   }
 }
 
+@media (width <= 720px) {
+  .root {
+    line-height: 17px;
+  }
 
-@media (max-width: 720px) {
-    .button {
-        line-height: 17px;
-    }
+  .root[type="submit"] {
+    padding: 15px 29.7px;
+  }
 
-    .button[type=submit] {
-        padding: 15px 29.7px;
-    }
-
-    .button[type=reset] {
-        padding: 15px 31.3px;
-    }
+  .root[type="reset"] {
+    padding: 15px 31.3px;
+  }
 }
-  

@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
 import Container from '@/components/commons/Container';
 import Title from '@/components/commons/Title';
@@ -74,18 +75,20 @@ const cards = [
     }
 ]
 
-export default function History(){
-    return <>
-   <section className="travel-history" id="travel-history">
-        <Container className={s.container} isTopOffset={true}>
-            <Title className={s.title}>Истории путешествий</Title>
-            <SubTitle className={s.subtitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
-            <div className={s.cards}>
-                {
-                    cards.map(card => <HistoryCard {...card} ></HistoryCard>)
-                }
-            </div>
-        </Container>
-    </section>
-    </>
+const History = ({id}) => {
+    return (
+        <section className={s.history} id={id}>
+            <Container className={s.container}>
+                <Title className={s.title}>Истории путешествий</Title>
+                <SubTitle className={s.subtitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
+                <div className={s.cards}>
+                    {
+                        cards.map(card => <HistoryCard key={card.id} {...card} ></HistoryCard>)
+                    }
+                </div>
+            </Container>
+        </section>
+    )
 }
+
+export default memo(History);

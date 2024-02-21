@@ -1,23 +1,26 @@
 import cx from 'classnames';
 
 import s from './TourCard.module.scss';
+import { memo } from 'react';
 
-const TourCard = ({className, id, type}) => {
+const TourCard = ({className, imageUrl, url}) => {
     return (
-        <div className={cx(className, s.card)} data-id={id} data-type={type}>
-            <div className={cx(s[`card_${id}`], s.cardZoom)}></div>
-            <a href="#" className={s.cardLink}></a>
+        <div className={cx(className, s.root, s.card)}>
+            <div className={s.gradient}>
+                <img src={imageUrl} alt="background" className={cx(s.img,s.cardZoom)}/>
+            </div>
+            <a href={url} className={s.cardLink}></a>
 
-            <div className={s.cardInner}>
+            <div className={s.inner}>
 
-                <div className={s.cardTop}>
-                    <h3 className={s.cardTitle}>Путешествие в горы</h3>
-                    <p className={s.cardCost}>от 80 000 руб</p>
+                <div className={s.top}>
+                    <h3 className={s.title}>Путешествие в горы</h3>
+                    <p className={s.cost}>от 80 000 руб</p>
                 </div>
-                <div className={s.cardBottom}>
-                    <a href="#" className={s.cardDetail}>
-                        <span className={s.cardDetailLink}>Подробнее</span>
-                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={s.cardDetailArrow}></img>
+                <div className={s.bottom}>
+                    <a href="#" className={cx(s.detail ,s.cardDetail)}>
+                        <span className={s.detailLink}>Подробнее</span>
+                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow,s.cardDetailArrow)}></img>
                     </a>
                 </div>
             </div>
@@ -25,4 +28,4 @@ const TourCard = ({className, id, type}) => {
     )
 };
 
-export default TourCard;
+export default memo(TourCard);

@@ -1,21 +1,18 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
-
-
-import s from './HistoryCard.module.scss';
 import SocialLink from '../SocialLink';
 
-const HistoryCard = ({title, paragraph, listingItems, social, detailLink,backgroundUrl}) => {
-    return (
-        <div className={s.card}>
+import s from './HistoryCard.module.scss';
 
-            <div style={{
-                    background: `linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%), url(${backgroundUrl}) center/cover;`
-                }} 
-                className={s.cardZoom}>
+const HistoryCard = ({className, title, paragraph, listingItems, social, detailLink, backgroundUrl }) => {
+    return (
+        <div className={cx(className, s.root ,s.card)}>
+            <div className={s.gradient}>
+                <img src={backgroundUrl} alt="background" className={cx(s.img,s.cardZoom)}/>
             </div>
 
-            <a href={detailLink} className={cx(s.link,s.cardLink)}></a>
+            <a href={detailLink} className={cx(s.link, s.cardLink)}></a>
 
             <div className={s.inner}>
                 <div className={s.info}>
@@ -23,12 +20,13 @@ const HistoryCard = ({title, paragraph, listingItems, social, detailLink,backgro
                     <p className={s.paragraph}>{paragraph}</p>
                     <ul className={s.list}>
                         {
-                            listingItems.map((el,idx) => <li key={idx} className={s.item}>{el}</li>)
+                            listingItems.map((el, idx) => <li key={idx} className={s.item}>{el}</li>)
                         }
                     </ul>
                 </div>
-                <div className={s.links}>	
-                    <a href={detailLink}  className={cx(s.detail, s.cardDetail)}>
+
+                <div className={s.links}>
+                    <a href={detailLink} className={cx(s.detail, s.cardDetail)}>
                         <span className={s.DetailLink}>Подробнее</span>
                         <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow, s.cardDetailArrow)}></img>
                     </a>
@@ -36,10 +34,11 @@ const HistoryCard = ({title, paragraph, listingItems, social, detailLink,backgro
                         <ul className={s.socialList}>
                             {
 
-                                social.map((el, idx) => <SocialLink link={el.link}  classLink={s.socialLink} name={el.name}/> )
+                                social.map((el, idx) => <SocialLink key={idx} link={el.link} classLink={s.socialLink} name={el.name} />)
                             }
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -47,4 +46,4 @@ const HistoryCard = ({title, paragraph, listingItems, social, detailLink,backgro
     )
 };
 
-export default HistoryCard;
+export default memo(HistoryCard);

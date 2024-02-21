@@ -1,67 +1,44 @@
-$container_max-width: 1860px;
-.listLine {
-    display: flex;
-    justify-content: center;
-    gap: calc(30px * 100% / $container_max-width);
-    height: 301px;
+$containerMaxWidth: 1860px;
+
+.root {
+  display: flex;
+  gap: calc(30px * 100% / $containerMaxWidth);
+  justify-content: center;
+  height: 301px;
 }
 
+@media (width <= 1024px) {
+  $containerMaxWidth: 984px;
 
-@media (max-width: 1024px) {
-    $container_max-width: 984px;
-    $list-height: 963px;
-
-    .list {
-        gap: calc(30px * 100% / $list-height);
-    }
-
-    .listLine {
-        gap: calc(20px * 100% / $container_max-width);
-    }
-
+  .root {
+    gap: calc(20px * 100% / $containerMaxWidth);
+  }
 }
-  
-@media (max-width: 720px) {
-    $container_max-width: 500px;
-    $list-height: 500px;
-    $gap-list: calc(18px * 100% / $list-height);
 
-    .list {
-        gap: $gap-list;
-        height: $list-height;
-        margin-top: 50px;
-    }
+@media (width <= 720px) {
+  $containerMaxWidth: 500px;
+  $list-height: 500px;
+  $gap-list: calc(18px * 100% / $list-height);
 
-    .listLine {
-        gap: calc(18px * 100% / $container_max-width);
-        height: calc( $list-height / 3 - $gap-list);
-    }
+  .root {
+    gap: calc(18px * 100% / $containerMaxWidth);
+    height: calc($list-height / 3 - $gap-list);
+  }
 
-    .smallGap {
-        gap: calc(10px * 100% / $container_max-width);
-    }
-
-
+  .smallGap {
+    gap: calc(10px * 100% / $containerMaxWidth);
+  }
 }
-  
-@media (max-width: 520px) {
-    $container_max-width: 318px;
-    $list-height: 366px;
 
-    .list {
-    gap: calc(18px * 100% / $list-height);
-    height: $list-height;
-    margin-top: 49px;
-    }
+@media (width <= 520px) {
+  $containerMaxWidth: 318px;
 
-    .listLine {
-    gap: calc(18px * 100% / $container_max-width);
+  .root {
+    gap: calc(18px * 100% / $containerMaxWidth);
     height: 110px;
-    }
+  }
 
-    .smallGap {
-    gap: calc(10px * 100% / $container_max-width);
-    }
-     
+  .smallGap {
+    gap: calc(10px * 100% / $containerMaxWidth);
+  }
 }
-  

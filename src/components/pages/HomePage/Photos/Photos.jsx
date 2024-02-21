@@ -1,9 +1,11 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
 import Container from '@/components/commons/Container';
 import Title from '@/components/commons/Title';
 import SubTitle from '@/components/commons/SubTitle';
 import Gallery from '@/components/commons/Gallery';
+
 import s from './Photos.module.scss';
 
 const pictures = [
@@ -67,15 +69,16 @@ const pictures = [
     },
 ]
 
-export default function Photos() {
-    return <>
-        <section className="travel-photo" id="travel-photo">
-            <Container className={s.container} isTopOffset={true}>
-            <Title className={s.tittle}>Фотографии путешествий</Title>
-            <SubTitle className={s.subtitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
-            <Gallery pictures={pictures}></Gallery>
-
+const Photos = () => {
+    return (
+        <section className={s.root} id="travel-photo">
+            <Container className={s.container}>
+                <Title className={s.tittle}>Фотографии путешествий</Title>
+                <SubTitle className={s.subtitle}>Идейные соображения высшего порядка, а также рамки и место обучения кадров</SubTitle>
+                <Gallery pictures={pictures}></Gallery>
             </Container>
         </section>
-    </>
+    )
 }
+
+export default memo(Photos)

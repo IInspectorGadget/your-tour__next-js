@@ -1,7 +1,11 @@
 import cx from "classnames"
 
+import { memo } from "react"
+
 import s from "./Container.module.scss"
 
-export default function Container({className, children, isTopOffset}){
-    return <div className={isTopOffset? cx(s.container, s.marginTop, className) : cx(s.container, className)}>{children}</div>
+const Container = ({className, children}) => {
+    return <div className={cx(s.container, className)}>{children}</div>
 } 
+
+export default memo(Container);

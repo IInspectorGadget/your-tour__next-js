@@ -1,20 +1,16 @@
-
 .field {
-  @include field
+  @include field;
 }
 
+.root {
+  resize: vertical;
+  overflow: hidden;
+  width: 100%;
+  min-height: 152px;
+}
 
-  .textarea {
-    overflow: hidden;
-    width: 100%;
-    min-height: 152px;
-    resize: vertical;
-  }
-  
-@media (max-width: 720px) {
-
-  .textarea {
+@media (width <= 720px) {
+  .root {
     min-height: 132px;
-    }
- 
+  }
 }

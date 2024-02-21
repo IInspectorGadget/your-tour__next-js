@@ -1,13 +1,13 @@
-import { memo } from 'react';
 import cx from 'classnames';
+import { memo } from 'react';
 
 import Picture from '../Picture';
 
 import s from './Row.module.scss';
 
-const Row = ({ pictures,isSmallGap, isSmallImages}) => {
+const Row = ({ className, pictures,isSmallGap, isSmallImages}) => {
     return (
-    <div className={cx(s.listLine, {[s.smallGap]: isSmallGap})}>
+    <div className={cx(className ,s.root, {[s.smallGap]: isSmallGap})}>
         {pictures.map(el => <Picture key={el.id} url={el.url} isLarge={!isSmallImages}/>)}
     </div>
     )

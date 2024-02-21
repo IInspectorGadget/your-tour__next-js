@@ -10,15 +10,34 @@ import Footer from "@/components/commons/Footer"
 
 import s from "./HomePage.module.scss"
 
-export default function HomePage(){
+export default function HomePage() {
+    const routes = {
+        tours: {
+            id: "tours",
+            name: "Туры",
+        },
+        createTour: {
+            id: "createTour",
+            name: "Создать тур",
+        },
+        reviews: {
+            id: "reviews",
+            name: "Отзывы",
+        },
+        history: {
+            id: "history",
+            name: "История",
+        },
+    }
+
     return <>
-        <Header></Header>
+        <Header routes={routes}></Header>
         <Hero></Hero>
-        <Tours></Tours>
-        <CreateTour></CreateTour>
-        <Reviews></Reviews>
+        <Tours id={routes.tours.id}></Tours>
+        <CreateTour id={routes.createTour.id}></CreateTour>
+        <Reviews id={routes.reviews.id}></Reviews>
         <Photos></Photos>
-        <History></History>
+        <History id={routes.history.id}></History>
         <WithUs></WithUs>
         <Footer></Footer>
     </>

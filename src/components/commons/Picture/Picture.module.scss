@@ -1,76 +1,75 @@
-$container_max-width: 1860px;
+$containerMaxWidth: 1860px;
+
 .item {
-    overflow: hidden;
-    flex-grow: 0;
-    flex-shrink: 1;
-    border-radius: 50px;
+  overflow: hidden;
+  flex-grow: 0;
+  flex-shrink: 1;
+  border-radius: 50px;
 }
 
 .large {
-    flex-basis: calc(442px * 100% / $container_max-width);
+  flex-basis: calc(442px * 100% / $containerMaxWidth);
 }
 
 .small {
-    flex-basis: calc(348px * 100% / $container_max-width);
+  flex-basis: calc(348px * 100% / $containerMaxWidth);
 }
 
 .img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
+@media (width <= 1024px) {
+  $containerMaxWidth: 984px;
 
-@media (max-width: 1024px) {
-    $container_max-width: 984px;
-    .tablet{
-        display: none;
-    }
+  .tablet {
+    display: none;
+  }
 
-    .large {
-        flex-basis: calc(315px * 100% / $container_max-width);
-    }
+  .large {
+    flex-basis: calc(315px * 100% / $containerMaxWidth);
+  }
 
-    .small {
-        flex-basis: calc(231px * 100% / $container_max-width);
-    }
-
+  .small {
+    flex-basis: calc(231px * 100% / $containerMaxWidth);
+  }
 }
-  
-@media (max-width: 720px) {
-    $container_max-width: 500px;
-    .item {
-        border-radius: 20px;
-    }
 
-    .mobile {
-        display: none;
-    }
+@media (width <= 720px) {
+  $containerMaxWidth: 500px;
 
-    .large {
-        flex-basis: calc(150px * 100% / $container_max-width);
-    }
+  .item {
+    border-radius: 20px;
+  }
 
-    .small {
-        flex-basis: calc(99px * 100% / $container_max-width);
-    }
+  .mobile {
+    display: none;
+  }
 
+  .large {
+    flex-basis: calc(150px * 100% / $containerMaxWidth);
+  }
+
+  .small {
+    flex-basis: calc(99px * 100% / $containerMaxWidth);
+  }
 }
-  
-@media (max-width: 520px) {
-    $container_max-width: 318px;
-    .item {
-        border-radius: 20px;
-    }
 
-    .large {
-        flex-basis: calc(150px * 100% / $container_max-width);
-    }
+@media (width <= 520px) {
+  $containerMaxWidth: 318px;
 
-    .small {
-        flex-basis: calc(99px * 100% / $container_max-width);
-    }
-  
+  .item {
+    border-radius: 20px;
+  }
+
+  .large {
+    flex-basis: calc(150px * 100% / $containerMaxWidth);
+  }
+
+  .small {
+    flex-basis: calc(99px * 100% / $containerMaxWidth);
+  }
 }
-  

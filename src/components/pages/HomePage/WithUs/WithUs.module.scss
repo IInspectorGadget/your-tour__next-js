@@ -1,77 +1,76 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inner {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    max-width: 771px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  max-width: 771px;
 }
 
 .img {
-    width: 370px;
-    height: 370px;
-    border-radius: 50px;
-    object-fit: cover;
-    object-position: center;
+  width: 370px;
+  height: 370px;
+
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .title {
-    @include h3;
-    color: var(--black);
+  color: var(--black);
+  @include h3;
 }
 
 .subtitle {
-    @include pNormal;
-    color: var(--gray-300);
+  color: var(--gray-300);
+  @include pNormal;
 }
 
 .email {
-    color: var(--black);
-    border-bottom: 1px solid transparent;
-    transition: border-color 200ms ease, color 200ms ease;
+  color: var(--black);
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
 
-    &:hover {
+  &:hover {
     border-color: var(--black);
-    }
+  }
 
-    &:focus {
+  &:focus {
     color: var(--green-400);
     border-color: var(--green-400);
-    }
-}
-  
-  
-  @media (max-width: 720px) {
-      .inner {
-        flex-direction: column;
-      }
-  
-      .text {
-        text-align: center;
-        align-items: center;
-      }
-  
   }
-  
-  @media (max-width: 360px) {
-      .container {
-        padding-top: 75px;
-      }
-  
-      .subtitle {
-        max-width: 291px;
-        text-align: center;
-      }
-    }
-     
-  
+}
+
+@media (width <= 720px) {
+  .inner {
+    flex-direction: column;
+  }
+
+  .text {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (width <= 360px) {
+  .container {
+    padding-top: 75px;
+  }
+
+  .subtitle {
+    max-width: 291px;
+    text-align: center;
+  }
+}

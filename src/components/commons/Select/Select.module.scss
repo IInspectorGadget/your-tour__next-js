@@ -1,53 +1,57 @@
-.selectWrapper {
-    position: relative;
-    display: grid;
+.root {
+  position: relative;
+  display: grid;
 
+  &::after {
+    pointer-events: none;
+    cursor: pointer;
+    content: "";
+
+    position: absolute;
+    top: calc(50% - 13px);
+    right: 20px;
+
+    width: 26px;
+    height: 26px;
+
+    background: url("/assets/images/icons/rectangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+  }
+}
+
+.direction {
+  &:invalid {
+    color: var(--gray-300);
+  }
+}
+
+.option {
+  color: var(--black);
+
+  &:disabled {
+    color: var(--gray-300);
+  }
+}
+
+.field {
+  @include field;
+}
+
+@media (width <= 720px) {
+  .field {
+    padding: 11px 9px;
+  }
+
+  .root {
     &::after {
-      content: "";
-      position: absolute;
-      top: calc(50% - 13px);
-      right: 20px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50px;
-      background: url(/assets/images/icons/rectangle.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      cursor: pointer;
-      pointer-events: none;
+      top: calc(50% - 12px);
+      right: 10px;
     }
   }
 
   .direction {
-    &:invalid {
-      color: var(--gray-300);
-    }
+    padding: 13.5px 9px;
   }
-
-  .option {
-    color: var(--black);
-
-    &:disabled {
-      color: var(--gray-300);
-    }
-  }
-
-.field {
-  @include field
-}
-
-@media (max-width: 720px) {
-    .field {
-        padding: 11px 9px;
-      }
-    .selectWrapper {
-        &::after {
-            top: calc(50% - 12px);
-            right: 10px;
-        }
-    }
-
-    .direction {
-        padding: 13.5px 9px;
-    }
 }

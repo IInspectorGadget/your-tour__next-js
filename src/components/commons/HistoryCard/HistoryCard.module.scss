@@ -1,134 +1,153 @@
-.card {
-    height: 567px;
-    border-radius: 50px;
-    
-    @include card
+@include card;
+
+.root {
+  height: 567px;
+  border-radius: 50px;
 }
 
-  .inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 60px;
-    color: var(--white);
+.inner {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  padding: 60px;
+
+  color: var(--white);
+}
+
+.img {
+  position: relative;
+  z-index: -1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    270deg,
+    rgb(0 0 0 / 0%) 0.01%,
+    rgb(0 0 0 / 20%) 100%
+  );
+}
+
+.title {
+  width: 554px;
+  @include h3;
+}
+
+.paragraph {
+  width: 554px;
+  margin-top: 37px;
+  @include pNormal;
+}
+
+.list {
+  margin-top: 28px;
+  margin-left: 12px;
+  @include pNormal;
+}
+
+.item::before {
+  content: "•";
+  padding-right: 11px;
+  list-style-type: disc;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social {
+  @include pNormal;
+}
+
+.socialList {
+  display: flex;
+  gap: 36px;
+}
+
+.socialLink {
+  pointer-events: auto;
+
+  position: relative;
+  z-index: 10;
+
+  padding-bottom: 2px;
+
+  color: var(--white);
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
+
+  &:hover {
+    border-color: var(--white);
   }
 
-  @for $i from 1 through 3 {
-    .card_#{$i} {
-      background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%), url(/assets/images/story/story_photo-#{$i}.jpg);
-      background-position: center;
-      background-size: cover;
-    }
+  &:active {
+    color: var(--orange-200);
+    border-color: var(--orange-200);
+  }
+}
+
+.detail {
+  color: var(--white);
+  @include pBig;
+}
+
+.detailLink {
+  color: var(--white);
+}
+
+@media (width <= 720px) {
+  .card {
+    height: 455px;
+    border-radius: 20px;
+  }
+
+  .inner {
+    padding: 30px 30px 29.5px 31px;
   }
 
   .title {
-    @include h3;
-
-    width: 554px;
-  }
-
-  .paragraph {
-    width: 554px;
-    margin-top: 37px;
-    @include pNormal;
+    width: clamp(160px, -15rem + 108vw, 554px);
   }
 
   .list {
-    margin-top: 28px;
-    margin-left: 12px;
-    @include pNormal;
+    margin-top: 24px;
+    margin-left: 9px;
   }
 
-  .item:before {
+  .item::before {
     content: "•";
-    padding-right: 11px;
+    padding-right: 10px;
     list-style-type: disc;
   }
 
-  .links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .item::marker {
+    height: 0;
+  }
+
+  .paragraph {
+    width: clamp(283px, 0.75rem + 75vw, 554px);
+    margin-top: 20px;
   }
 
   .social {
-    @include pNormal;
-  }
-
-  .socialList {
-    display: flex;
-    gap: 36px;
-  }
-
-  .socialLink {
-    position: relative;
-    z-index: 10;
-    padding-bottom: 2px;
-    color: var(--white);
-    border-bottom: 1px solid transparent;
-    transition: border-color 200ms ease, color 200ms ease;
-    pointer-events: auto;
-
-    &:hover {
-      border-color: var(--white);
-    }
-
-    &:active {
-      color: var(--orange-200);
-      border-color: var(--orange-200);
-    }
+    display: none;
   }
 
   .detail {
-    @include pBig;
-    color: var(--white);
+    gap: 17px;
   }
-  .detailLink {
-    color: var(--white);
-  }
-
-
-@media (max-width: 720px) {
-    .card {
-      height: 455px;
-      border-radius: 20px;
-    }
-
-    .inner {
-      padding: 30px 30px 29.5px 31px;
-    }
-
-    .title {
-      width: clamp(160px, -15rem + 108vw, 554px);
-    }
-
-    .list {
-      margin-top: 24px;
-      margin-left: 9px;
-    }
-
-    .item:before {
-      content: "•";
-      padding-right: 10px;
-      list-style-type: disc;
-    }
-
-    .item:marker {
-      height: 0px;
-    }
-
-    .paragraph {
-      width: clamp(283px, 0.75rem + 75vw, 554px);
-      margin-top: 20px;
-    }
-
-    .social {
-      display: none;
-    }
-
-    .detail {
-      gap: 17px;
-    }
-  }
+}

@@ -3,28 +3,32 @@
   flex-direction: column;
   align-items: center;
 }
-  
+
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0 30.5px;
+  justify-content: center;
+
   margin-top: 35px;
-  @include pBig
+
+  @include pBig;
 }
-  
+
 .item {
   padding-bottom: 4px;
   color: var(--black);
   border-bottom: 2px solid transparent;
-  transition: border-color 200ms ease, color 200ms ease;
+  transition:
+    border-color 200ms ease,
+    color 200ms ease;
 
   &:hover {
-    border-color: var(--black);
     cursor: pointer;
+    border-color: var(--black);
   }
 }
-  
+
 .itemActive {
   color: var(--orange-200);
   border-bottom: 2px solid var(--orange-200);
@@ -33,32 +37,26 @@
     border-bottom: 2px solid var(--orange-200);
   }
 }
-  
+
 .cards {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
+
   margin-top: 101px;
 }
-  
 
-  
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .cards {
     gap: 18px;
   }
-
-  .card {
-    width: 450px;
-    width: calc(100% / 2 - 9px);
-  }
 }
-  
-@media (max-width: 720px) {
+
+@media (width <= 720px) {
   .item {
     height: 22px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
   }
 
   .list {
@@ -71,35 +69,4 @@
   .cards {
     margin-top: 46px;
   }
-
-  .card {
-    height: 318px;
-    border-radius: 20px;
-  }
-
-  .cardInner {
-    padding: 26px 25px 23px 25px;
-  }
-
-  .cardLink:hover {
-    background-color: inherit;
-  }
-
-  .cardLink {
-    gap: 18px;
-    margin-left: -20px;
-    margin-bottom: -5px;
-  }
-
-  .cardDetail {
-    margin: (-7px) -19px;
-    padding: 7px 19px;
-  }
 }
-
-@media (max-width: 600px) {
-  .card {
-    width: 100%;
-  }
-}
-  
