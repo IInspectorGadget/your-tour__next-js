@@ -36,7 +36,7 @@ const HistoryCard = ({className, title, paragraph, listingItems, social, detailL
                 <div className={s.links}>
                     <a href={detailLink} className={cx(s.detail, s.cardDetail)}>
                         <span className={s.DetailLink}>Подробнее</span>
-                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow, s.cardDetailArrow)}/>
+                        <img src="/assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow, s.cardDetailArrow)}/>
                     </a>
                     <div className={s.social}>
                         <ul className={s.socialList}>
