@@ -4,8 +4,7 @@ const isGithubActions = process.env.GITHUB_ACTIONS || false
 let assetPrefix = ''
 let output = ""
 if(isGithubActions){
-  basePath = "/./yourTour__Next.js",
-  assetPrefix = '/.yourTour__Next.js/',
+  assetPrefix = './',
   output = "export"
 }
 
