@@ -15,7 +15,7 @@ const WithUs = ({className}) => {
                         <Image 
                             fill 
                             sizes="(max-width: 720px) 40vw, 80vw" 
-                            src="assets/images/footer/footer_photo.jpg" 
+                            src="/assets/images/footer/footer_photo.jpg" 
                             alt="footer_photo" 
                             className={s.img}
                         />
