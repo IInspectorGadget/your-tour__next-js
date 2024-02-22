@@ -23,8 +23,8 @@
 }
 
 .title {
+  max-width: 247px;
   color: var(--white);
-
   @include h3;
 }
 
@@ -67,6 +67,10 @@
     width: 450px;
     width: calc(100% / 2 - 9px);
   }
+
+  .title {
+    max-width: 100%;
+  }
 }
 
 @media (width <= 720px) {
@@ -79,5 +83,9 @@
 @media (width <= 600px) {
   .root {
     width: 100%;
+  }
+
+  .inner {
+    padding: 26px 25px 23px;
   }
 }

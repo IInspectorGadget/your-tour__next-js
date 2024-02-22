@@ -1,6 +1,5 @@
-$containerMaxWidth: 1860px;
-
 .root {
+  position: relative;
   overflow: hidden;
   flex-grow: 0;
   flex-shrink: 1;
@@ -8,11 +7,11 @@ $containerMaxWidth: 1860px;
 }
 
 .large {
-  flex-basis: calc(442px * 100% / $containerMaxWidth);
+  flex-basis: calc(442px * 100% / $containerMaxWidthDesktop);
 }
 
 .small {
-  flex-basis: calc(348px * 100% / $containerMaxWidth);
+  flex-basis: calc(348px * 100% / $containerMaxWidthDesktop);
 }
 
 .img {
@@ -22,25 +21,26 @@ $containerMaxWidth: 1860px;
   object-position: center;
 }
 
-@media (width <= 1024px) {
-  $containerMaxWidth: 984px;
+.fill{
+  width: 100%;
+  height: 100%;
+}
 
+@media (width <= 1024px) {
   .tablet {
     display: none;
   }
 
   .large {
-    flex-basis: calc(315px * 100% / $containerMaxWidth);
+    flex-basis: calc(315px * 100% / $containerMaxWidthTablet);
   }
 
   .small {
-    flex-basis: calc(231px * 100% / $containerMaxWidth);
+    flex-basis: calc(231px * 100% / $containerMaxWidthTablet);
   }
 }
 
 @media (width <= 720px) {
-  $containerMaxWidth: 500px;
-
   .root {
     border-radius: 20px;
   }
@@ -50,26 +50,24 @@ $containerMaxWidth: 1860px;
   }
 
   .large {
-    flex-basis: calc(150px * 100% / $containerMaxWidth);
+    flex-basis: calc(150px * 100% / $containerMaxWidthMobileL);
   }
 
   .small {
-    flex-basis: calc(99px * 100% / $containerMaxWidth);
+    flex-basis: calc(99px * 100% / $containerMaxWidthMobileL);
   }
 }
 
 @media (width <= 520px) {
-  $containerMaxWidth: 318px;
-
   .root {
     border-radius: 20px;
   }
 
   .large {
-    flex-basis: calc(150px * 100% / $containerMaxWidth);
+    flex-basis: calc(150px * 100% / $containerMaxWidthMobileM);
   }
 
   .small {
-    flex-basis: calc(99px * 100% / $containerMaxWidth);
+    flex-basis: calc(99px * 100% / $containerMaxWidthMobileM);
   }
 }

@@ -1,12 +1,9 @@
-$containerMaxWidth: 1860px;
-$list-height: 963px;
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  max-width: calc($containerMaxWidth + 60px);
+  max-width: calc($containerMaxWidthDesktop + 60px);
 
   text-align: center;
 }
@@ -16,10 +13,8 @@ $list-height: 963px;
 }
 
 @media (width <= 1024px) {
-  $containerMaxWidth: 984px;
-
   .container {
-    max-width: calc($containerMaxWidth + 40px);
+    max-width: calc($containerMaxWidthTablet + 40px);
   }
 }
 

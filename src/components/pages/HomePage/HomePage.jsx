@@ -10,26 +10,9 @@ import Footer from "@/components/commons/Footer"
 
 import s from "./HomePage.module.scss"
 
-export default function HomePage() {
-    const routes = {
-        tours: {
-            id: "tours",
-            name: "Туры",
-        },
-        createTour: {
-            id: "createTour",
-            name: "Создать тур",
-        },
-        reviews: {
-            id: "reviews",
-            name: "Отзывы",
-        },
-        history: {
-            id: "history",
-            name: "История",
-        },
-    }
+import {routes} from "@/data"
 
+export default function HomePage() {
     return <>
         <Header routes={routes}/>
         <Hero/>

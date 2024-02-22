@@ -11,10 +11,14 @@
   max-width: 771px;
 }
 
-.img {
+.imgWrapper{
+  position: relative;
+  flex-shrink: 0;
   width: 370px;
   height: 370px;
+}
 
+.img {
   object-fit: cover;
   object-position: center;
   border-radius: 50px;
@@ -73,4 +77,14 @@
     max-width: 291px;
     text-align: center;
   }
+
+  .imgWrapper{
+    width: 130px;
+    height: 133px;
+  }
+
+  .img{
+    border-radius: 20px;
+  }
+  
 }

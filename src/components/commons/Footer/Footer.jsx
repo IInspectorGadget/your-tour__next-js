@@ -8,23 +8,7 @@ import SocialLink from '../SocialLink';
 import s from './Footer.module.scss';
 
 
-const links = [
-    {
-        name: "instagram",
-        link: "#",
-        iconUrl: "assets/images/icons/inst.svg",
-    },
-    {
-        name: "facebook",
-        link: "#",
-        iconUrl: "assets/images/icons/facebook.svg",
-    },
-    {
-        name: "vkontakte",
-        link: "#",
-        iconUrl: "assets/images/icons/vk.svg",
-    }
-]
+import {links} from "@/data"
 
 const Footer = ({className}) => {
     return (
@@ -34,7 +18,7 @@ const Footer = ({className}) => {
                     <p className={s.paragraph}>Наши социальные сети</p>
                     <ul className={s.list}>
                         {
-                            links.map((link, idx) => <SocialLink key = {idx} {...link} classLink={s.link}></SocialLink>)
+                            links.map((link, idx) => <SocialLink className={s.item} key = {idx} {...link} classLink={s.link}></SocialLink>)
                         }
                     </ul>
                 </div>

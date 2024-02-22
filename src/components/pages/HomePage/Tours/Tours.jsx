@@ -1,62 +1,12 @@
 import cx from "classnames"
 import { memo, useState } from "react"
 
-import Container from "@/components/commons/Container"
-import Title from "@/components/commons/Title"
+import Section from "@/components/commons/Section"
 import TourCard from "@/components/commons/TourCard"
 
 import s from "./Tours.module.scss"
 
-const items = [
-    {
-        id: 1,
-        types: ["Популярные"],
-        imageUrl: "/assets/images/cards/card_tour_photo-1.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    },
-    {
-        id: 2,
-        types: ["Популярные"],
-        imageUrl: "/assets/images/cards/card_tour_photo-2.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    },
-    {
-        id: 3,
-        types: ["Популярные", "Велопрогулки"],
-        imageUrl: "/assets/images/cards/card_tour_photo-3.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    },
-    {
-        id: 4,
-        types: ["Популярные", "Авторский"],
-        imageUrl: "/assets/images/cards/card_tour_photo-4.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    },
-    {
-        id: 5,
-        types: ["Популярные", "Походы"],
-        imageUrl: "/assets/images/cards/card_tour_photo-5.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    },
-    {
-        id: 6,
-        types: ["Популярные", "Сплавы"],
-        imageUrl: "/assets/images/cards/card_tour_photo-6.jpg",
-        url:"#",
-        const: "80 000",
-        title: "Путешествие в горы",
-    }
-]
+import {tours as items} from "@/data"
 
 
 const Tours = ({id}) => {
@@ -70,22 +20,27 @@ const Tours = ({id}) => {
     }
 
     return (
-        <section className={s.root} id={id}>
-            <Container className={s.container}>
-                <Title className={s.title}>Выбери свой тур</Title>
-                <ul className={s.list}>
-                    {filters.map((type, idx) =>
-                        <li onClick={() => handlerClick(type)} key={idx} className={cx(s.item, {[s.itemActive]: selectedFilter === type})}>{type}</li>
-                    )}
-                </ul>
+     
+        <Section
+            className={s.root} 
+            classContainer={s.container}
+            classTitle={s.title}
+            classSubTitle={s.subtitle}
+            id = {id}
+            title = {"Выбери свой тур"}
+        >
+            <ul className={s.list}>
+                {filters.map((type, idx) =>
+                    <li onClick={() => handlerClick(type)} key={idx} className={cx(s.item, {[s.itemActive]: selectedFilter === type})}>{type}</li>
+                )}
+            </ul>
 
-                <div className={s.cards}>
-                    {filteredItems.map(el => (
-                        <TourCard key={el.id} {...el}/>
-                    ))}
-                </div>
-            </Container>
-        </section>
+            <div className={s.cards}>
+                {filteredItems.map(el => (
+                    <TourCard key={el.id} {...el}/>
+                ))}
+            </div>
+        </Section>
     )
 }
 

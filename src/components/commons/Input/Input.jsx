@@ -1,16 +1,19 @@
+import { forwardRef } from 'react';
 import cx from 'classnames';
 
 import s from './Input.module.scss';
 
-const Input = ({className, type, placeholder, name, id, max, maxLength, handlers, isRequired }) => {
+const Input = forwardRef(({className, type, placeholder, name, id, max, maxLength, handlers, isRequired, value }, ref) => {
 
     return (
         <input
+            ref={ref}
             {...handlers}
             required = {isRequired}
             max = {max} 
             maxLength={maxLength} 
             autoComplete="on" 
+            value = {value}
             id={id} 
             name={name} 
             type={type} 
@@ -19,6 +22,8 @@ const Input = ({className, type, placeholder, name, id, max, maxLength, handlers
         />
     )
     
-};
+});
+
+Input.displayName = 'Input';
 
 export default Input;

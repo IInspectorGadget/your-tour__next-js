@@ -1,6 +1,7 @@
 import { memo } from 'react';
-
 import cx from 'classnames';
+
+import Image from 'next/image';
 
 import s from './Review.module.scss';
 
@@ -16,7 +17,15 @@ const Review = ({className, name, tour, text, photo}) => {
                     <h3 className={s.name}>{name}</h3>
                     <p className={s.tourName}>Тур: {tour}</p>
                 </div>
-                <img src={photo} alt={name} className={s.footerImg}></img>
+                <div className={s.footerImageWrapper}>
+                    <Image  
+                        fill 
+                        sizes="(max-width: 720px) 30vw, 20vw" 
+                        src={photo} 
+                        alt={name} 
+                        className={s.footerImg}
+                    />
+                </div>
             </div>
         </div>
     )

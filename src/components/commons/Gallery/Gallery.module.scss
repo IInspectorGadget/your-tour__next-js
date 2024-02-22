@@ -1,41 +1,32 @@
-$containerMaxWidth: 1860px;
-$list-height: 963px;
 
 .root {
   display: flex;
   flex-direction: column;
-  gap: calc(30px * 100% / $list-height);
+  gap: calc(30px * 100% / $galleryHeightDesktop);
 
   width: 100%;
-  height: $list-height;
+  height: $galleryHeightDesktop;
   margin-top: 100px;
 }
 
 @media (width <= 1024px) {
-  $list-height: 963px;
-
   .root {
-    gap: calc(30px * 100% / $list-height);
+    gap: calc(30px * 100% / $galleryHeightTablet);
   }
 }
 
 @media (width <= 720px) {
-  $list-height: 500px;
-  $gap-list: calc(18px * 100% / $list-height);
-
   .root {
-    gap: $gap-list;
-    height: $list-height;
+    gap: calc(18px * 100% / $galleryHeightMobileL);
+    height: $galleryHeightMobileL;
     margin-top: 50px;
   }
 }
 
 @media (width <= 520px) {
-  $list-height: 366px;
-
-  .list {
-    gap: calc(18px * 100% / $list-height);
-    height: $list-height;
+  .root {
+    gap: calc(18px * 100% / $galleryHeightMobileM);
+    height: $galleryHeightMobileM;
     margin-top: 49px;
   }
 }

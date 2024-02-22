@@ -3,6 +3,7 @@ import { memo } from 'react';
 import cx from 'classnames';
 
 import SocialLink from '../SocialLink';
+import Image from 'next/image';
 
 import s from './HistoryCard.module.scss';
 
@@ -10,7 +11,13 @@ const HistoryCard = ({className, title, paragraph, listingItems, social, detailL
     return (
         <div className={cx(className, s.root ,s.card)}>
             <div className={s.gradient}>
-                <img src={backgroundUrl} alt="background" className={cx(s.img,s.cardZoom)}/>
+                <Image 
+                    fill
+                    sizes="(max-width: 720px) 90vw, 80vw" 
+                    src={backgroundUrl} 
+                    alt="background" 
+                    className={cx(s.img,s.cardZoom)}
+                />
             </div>
 
             <a href={detailLink} className={cx(s.link, s.cardLink)}></a>
@@ -29,7 +36,7 @@ const HistoryCard = ({className, title, paragraph, listingItems, social, detailL
                 <div className={s.links}>
                     <a href={detailLink} className={cx(s.detail, s.cardDetail)}>
                         <span className={s.DetailLink}>Подробнее</span>
-                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow, s.cardDetailArrow)}></img>
+                        <img src="assets/images/icons/arrow.svg" alt="arrow" className={cx(s.detailArrow, s.cardDetailArrow)}/>
                     </a>
                     <div className={s.social}>
                         <ul className={s.socialList}>

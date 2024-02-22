@@ -1,6 +1,7 @@
 import { memo } from 'react';
-
 import cx from 'classnames';
+
+import Image from 'next/image';
 
 import s from './TourCard.module.scss';
 
@@ -8,7 +9,13 @@ const TourCard = ({className, imageUrl, url, title, cost}) => {
     return (
         <div className={cx(className, s.root, s.card)}>
             <div className={s.gradient}>
-                <img src={imageUrl} alt="background" className={cx(s.img,s.cardZoom)}/>
+                <Image 
+                    fill 
+                    sizes="(max-width: 720px) 60vw, 35vw" 
+                    src={imageUrl} 
+                    alt="background" 
+                    className={cx(s.img,s.cardZoom)}
+                />
             </div>
             <a href={url} className={s.cardLink}></a>
 

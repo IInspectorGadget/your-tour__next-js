@@ -5,7 +5,7 @@ import Container from "@/components/commons/Container"
 import s from "./Hero.module.scss"
 
 const Hero = () => {
-    return <>
+    return (
         <section className={s.root}>
             <Container className={s.container}>
                 <h1 className={s.title}>Идеальные путешествия существуют</h1>
@@ -13,7 +13,7 @@ const Hero = () => {
                 <a href="#" className={s.button}>Найти тур</a>
             </Container>
         </section>
-    </>
+    )        
 }
 
 export default memo(Hero);
