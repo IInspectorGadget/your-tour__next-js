@@ -35,7 +35,7 @@ const Header = ({className, routes}) => {
             <div className={s.wrapper}>
                 <Container className={s.container}>
                     <a href="#" className={s.link}>
-                        <img className={s.logo} src="/assets/images/header/YourTour.svg" alt="logo"/>
+                        <img className={s.logo} src="assets/images/header/YourTour.svg" alt="logo"/>
                     </a>
                     <nav className={s.nav}>
                         <ul className={s.navList}>
