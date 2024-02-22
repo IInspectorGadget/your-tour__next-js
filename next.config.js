@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false
+const isGithubActions = !!process.env.GITHUB_ACTIONS 
 let assetPrefix = ''
 let output = ""
 if(isGithubActions){
@@ -9,7 +9,7 @@ if(isGithubActions){
 }
 
 module.exports = {
-  output: output,
+  output: "export",
   sassOptions: {
     includePaths: ["./src/styles/"],
     prependData: `@use "base/mixins.scss" as *;@use "base/fonts.scss" as *; @import "base/variables.scss"; `,
