@@ -8,6 +8,9 @@
 .vscode
 .github
 .github/workflows
+.prettierrc
+.eslintrc.json
+.stylelintignore
 # testing
 /coverage
 

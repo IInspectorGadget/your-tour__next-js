@@ -65,13 +65,8 @@
 
 @media (width <= 720px) {
   .root {
-    background: linear-gradient(
-        180deg,
-        rgb(0 0 0 / 40%) 0%,
-        rgb(0 0 0 / 0%) 39.9%
-      ),
-      linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 30%)),
-      url("/assets/images/header/header-main_mobile.jpg");
+    background: linear-gradient(180deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 0%) 39.9%),
+      linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 30%)), url("/assets/images/header/header-main_mobile.jpg");
     background-position: center;
     background-size: cover;
   }

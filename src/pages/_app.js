@@ -13,5 +13,5 @@ export default function App({ Component, pageProps }) {
     <main className={roboto.className}>
       <Component {...pageProps} />
     </main>
-  )
+  );
 }

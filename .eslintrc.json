@@ -1,15 +1,11 @@
-
 {
-  "extends": [
-    "next/core-web-vitals", 
-    "next", 
-    "plugin:react/recommended", 
-    "plugin:react-hooks/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "next", "plugin:react/recommended", "plugin:react-hooks/recommended"],
+  "plugins": ["prettier"],
   "rules": {
     "no-console": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "unicorn/filename-case": "off"
+    "unicorn/filename-case": "off",
+    "prettier/prettier": 2
   }
 }

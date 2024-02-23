@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from "react";
 
-import cx from 'classnames';
+import cx from "classnames";
 
-import s from './SubTitle.module.scss';
+import s from "./SubTitle.module.scss";
 
-const SubTitle = ({className, children}) => {
-    return <p className={cx(s.root, className)}>{children}</p>;
+const SubTitle = ({ className, children }) => {
+  return <p className={cx(s.root, className)}>{children}</p>;
 };
 
 export default memo(SubTitle);

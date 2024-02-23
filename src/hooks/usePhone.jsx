@@ -1,82 +1,83 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useRef, useState } from "react";
 
-const usePhone = (props) => {
+const numberReg = new RegExp(/\D/g);
 
-    const [value, setValue] = useState("")
+const usePhone = () => {
+  const [value, setValue] = useState("");
 
-    const numberReg = useMemo(() => new RegExp(/\D/g), []);
-    const input = useRef(null);
+  const input = useRef(null);
 
-    const getInputNumbersValue = useCallback((value) => {
-        return value.replace(numberReg, '');
-    },[])
-    
-    const updateMobileText = useCallback((inputNumbersValue) =>{
-        let formattedInputValue = "";
-        if (inputNumbersValue[0] === "9" || inputNumbersValue[0] === "7") {
+  const getInputNumbersValue = useCallback((value) => {
+    return value.replace(numberReg, "");
+  }, []);
 
-            if (inputNumbersValue[0] === "9") inputNumbersValue = "7" + inputNumbersValue;
-            
-            formattedInputValue =  "+ 7 ";
+  const updateMobileText = useCallback((inputNumbersValue) => {
+    let formattedInputValue = "";
+    if (inputNumbersValue[0] === "9" || inputNumbersValue[0] === "7") {
+      if (inputNumbersValue[0] === "9") {
+        inputNumbersValue = "7" + inputNumbersValue;
+      }
 
-            const cases = [
-                { length: 1, start: 1, end: 4, separator: '(' },
-                { length: 5, start: 4, end: 7, separator: ') ' },
-                { length: 8, start: 7, end: 9, separator: '-' },
-                { length: 10, start: 9, end: 11, separator: '-' }
-            ];
-    
-            for (const { length, start, end, separator } of cases) {
-                if (inputNumbersValue.length >= length) {
-                    formattedInputValue += separator + inputNumbersValue.substring(start, end);
-                }
-            }
+      formattedInputValue = "+ 7 ";
 
-        } 
-        return formattedInputValue
-    },[])
+      const cases = [
+        { length: 1, start: 1, end: 4, separator: "(" },
+        { length: 5, start: 4, end: 7, separator: ") " },
+        { length: 8, start: 7, end: 9, separator: "-" },
+        { length: 10, start: 9, end: 11, separator: "-" },
+      ];
 
-    const onPhoneInput = (e) => {
-        const newValue = e.target.value;
-        const inputNumbersValue = getInputNumbersValue(newValue)
-        const selectionStart = e.target.selectionStart
-
-        if (!inputNumbersValue)  return setValue("");
-
-        // Change characters in the middle of text
-        if (newValue.length != selectionStart) {
-            //We make changes if the input is correct and change the cursor location
-            if (e.data && numberReg.test(e.data)) {
-                setValue(updateMobileText(inputNumbersValue));
-                input.selectionEnd= selectionStart - 1
-                input.selectionStart= selectionStart -1
-            }
-            setValue(updateMobileText(inputNumbersValue));
-            return 
+      for (const { length, start, end, separator } of cases) {
+        if (inputNumbersValue.length >= length) {
+          formattedInputValue += separator + inputNumbersValue.substring(start, end);
         }
-        
-        setValue(updateMobileText(inputNumbersValue, newValue));
-
+      }
     }
-    
-    const onPhoneKeyDown =  (e) => {
-        // Remove the last character
-        if (/[0-9]/.test(e.key)) return
-        const inputValue = e.target.value.replace(numberReg, '');
-        if (e.keyCode == 8 && inputValue.length == 1) {
-            e.target.value = "";
-        }
-    }
+    return formattedInputValue;
+  }, []);
 
-    const phoneHandlers = {
-        "onKeyDown": onPhoneKeyDown,
-        "onChange": onPhoneInput,
+  const onPhoneInput = useCallback((e) => {
+    const newValue = e.currentTarget.value;
+    const inputNumbersValue = getInputNumbersValue(newValue);
+    const selectionStart = e.currentTarget.selectionStart;
+
+    if (!inputNumbersValue) {
+      setValue("");
+      return;
     }
 
+    // Change characters in the middle of text
+    if (newValue.length != selectionStart) {
+      //We make changes if the input is correct and change the cursor location
+      if (e.data && numberReg.test(e.data)) {
+        setValue(updateMobileText(inputNumbersValue));
+        input.selectionEnd = selectionStart - 1;
+        input.selectionStart = selectionStart - 1;
+      }
+      setValue(updateMobileText(inputNumbersValue));
+      return;
+    }
 
-    return [input, value, phoneHandlers]
+    setValue(updateMobileText(inputNumbersValue));
+  }, []);
 
-}
+  const onPhoneKeyDown = (e) => {
+    // Remove the last character
+    if (/[0-9]/.test(e.key)) {
+      return;
+    }
+    const inputValue = e.currentTarget.value.replace(numberReg, "");
+    if (e.keyCode == 8 && inputValue.length == 1) {
+      e.currentTarget.value = "";
+    }
+  };
 
+  const phoneHandlers = {
+    onKeyDown: onPhoneKeyDown,
+    onChange: onPhoneInput,
+  };
 
-export default usePhone
+  return [input, value, phoneHandlers];
+};
+
+export default usePhone;

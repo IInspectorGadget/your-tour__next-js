@@ -14,10 +14,76 @@
   gap: 30px;
 }
 
+.license {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+
+  &Link {
+    color: var(--black);
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color 200ms ease,
+      color 200ms ease;
+
+    &:hover {
+      border-color: var(--black);
+    }
+
+    &:active {
+      color: var(--green-400);
+      border-color: var(--green-400);
+    }
+  }
+
+  &Wrapper {
+    position: relative;
+  }
+
+  &Checkbox {
+    cursor: pointer;
+
+    width: 26px;
+    height: 26px;
+
+    appearance: none;
+    border: 2px solid #1b1f2b;
+    border-radius: 5px;
+
+    &:checked::before {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(calc(-50% + 0.5px), calc(-50% - 1.5px)) rotate(-45deg);
+
+      width: 12.243px;
+      height: 7.122px;
+
+      border-bottom: 2px solid var(--black);
+      border-left: 2px solid var(--black);
+    }
+  }
+
+  &Label {
+    padding-left: 19px;
+    color: var(--gray-300);
+
+    @include pSmall;
+  }
+}
+
 @media (width <= 1024px) {
   .root {
     gap: 33px 20px;
     margin: 60px;
+  }
+
+  .license {
+    &Label {
+      padding-left: 11px;
+    }
   }
 }
 
@@ -30,5 +96,24 @@
 
   .buttons {
     gap: 10px;
+  }
+
+  .license {
+    align-items: flex-start;
+
+    &Label {
+      padding-left: 10px;
+      letter-spacing: -0.003em;
+    }
+
+    &Checkbox {
+      width: 20px;
+      height: 20px;
+
+      &:checked::before {
+        width: 9.5px;
+        height: 5.5px;
+      }
+    }
   }
 }

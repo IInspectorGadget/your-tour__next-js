@@ -1,9 +1,10 @@
-import cx from 'classnames';
+import { memo } from "react";
+import cx from "classnames";
 
-import s from './Button.module.scss';
+import s from "./Button.module.scss";
 
-const Button = ({className, value, type}) => {
-    return <input value={value} type={type} className={cx(className, s.root)}/>
-}
+const Button = ({ className, value, type }) => {
+  return <input value={value} type={type} className={cx(className, s.root)} />;
+};
 
-export default Button;
+export default memo(Button);
