@@ -3,8 +3,8 @@ import usePhone from "@/hooks/usePhone";
 
 import cx from "classnames";
 
+import FormItem from "@/components/commons/Form/FormItem";
 import Input from "@/components/commons/Input";
-import FormItem from "@/components/commons/FormItem";
 import TextArea from "@/components/commons/TextArea";
 import Select from "@/components/commons/Select";
 import Adult from "@/components/commons/Adult";
