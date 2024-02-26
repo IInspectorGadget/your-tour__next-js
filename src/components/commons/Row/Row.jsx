@@ -5,7 +5,7 @@ import Picture from "@/components/commons/Picture";
 
 import s from "./Row.module.scss";
 
-const Row = ({ className, pictures, isSmallGap, isSmallImages }) => {
+const Row = ({ className, pictures, isSmallGap = false, isSmallImages = false }) => {
   return (
     <div className={cx(className, s.root, { [s.smallGap]: isSmallGap })}>
       {pictures.map((el) => (

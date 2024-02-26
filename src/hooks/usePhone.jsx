@@ -36,41 +36,47 @@ const usePhone = () => {
     return formattedInputValue;
   }, []);
 
-  const onPhoneInput = useCallback((e) => {
-    const newValue = e.currentTarget.value;
-    const inputNumbersValue = getInputNumbersValue(newValue);
-    const selectionStart = e.currentTarget.selectionStart;
+  const onPhoneInput = useCallback(
+    (e) => {
+      const newValue = e.currentTarget.value;
+      const inputNumbersValue = getInputNumbersValue(newValue);
+      const selectionStart = e.currentTarget.selectionStart;
 
-    if (!inputNumbersValue) {
-      setValue("");
-      return;
-    }
-
-    // Change characters in the middle of text
-    if (newValue.length != selectionStart) {
-      //We make changes if the input is correct and change the cursor location
-      if (e.data && numberReg.test(e.data)) {
-        setValue(updateMobileText(inputNumbersValue));
-        input.selectionEnd = selectionStart - 1;
-        input.selectionStart = selectionStart - 1;
+      if (!inputNumbersValue) {
+        setValue("");
+        return;
       }
+
+      // Change characters in the middle of text
+      if (newValue.length != selectionStart) {
+        //We make changes if the input is correct and change the cursor location
+        if (e.data && numberReg.test(e.data)) {
+          setValue(updateMobileText(inputNumbersValue));
+          input.selectionEnd = selectionStart - 1;
+          input.selectionStart = selectionStart - 1;
+        }
+        setValue(updateMobileText(inputNumbersValue));
+        return;
+      }
+
       setValue(updateMobileText(inputNumbersValue));
-      return;
-    }
+    },
+    [setValue, getInputNumbersValue, updateMobileText],
+  );
 
-    setValue(updateMobileText(inputNumbersValue));
-  }, []);
-
-  const onPhoneKeyDown = (e) => {
-    // Remove the last character
-    if (/[0-9]/.test(e.key)) {
-      return;
-    }
-    const inputValue = e.currentTarget.value.replace(numberReg, "");
-    if (e.keyCode == 8 && inputValue.length == 1) {
-      e.currentTarget.value = "";
-    }
-  };
+  const onPhoneKeyDown = useCallback(
+    (e) => {
+      // Remove the last character
+      if (/[0-9]/.test(e.key)) {
+        return;
+      }
+      const inputValue = e.currentTarget.value.replace(numberReg, "");
+      if (e.keyCode == 8 && inputValue.length == 1) {
+        setValue("");
+      }
+    },
+    [setValue],
+  );
 
   const phoneHandlers = {
     onKeyDown: onPhoneKeyDown,

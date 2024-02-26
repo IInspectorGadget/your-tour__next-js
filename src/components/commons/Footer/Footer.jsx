@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import cx from "classnames";
 
-import Container from "../Container";
+import Container from "@/components/commons/Container";
 import SocialLink from "@/components/commons/SocialLink";
 
 import s from "./Footer.module.scss";
